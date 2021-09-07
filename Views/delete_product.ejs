@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs') %>
+
+  
+
+<div class="container" >
+    <form  method="POST" action="/products/delete">
+        <input type="hidden" name="id" value="<%= product.id %>">
+        <div class="row row-cols-1 row-cols-md-2 offset-md-4 mb-3 mt-5 text-center">
+            <div class="col">
+            <h1>Delete this product?</h1>
+              <div class="card mb-4 mt-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                  <h4 class="my-0 fw-bold"><%= product.name %></h4>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li><h5>Category: <%= product.category %></h5></li>
+                    <li><h5>Price: <%= product.price %></h5></li>
+                    <li><h6>Description: <%= product.description %></h6></li>
+                    <li>In Stock: <%= product.stock %></li>
+                  </ul>
+                  <button type="submit" class="w-100 btn btn-lg btn-outline-danger mb-3">Delete</button>
+                  <a href="/products" class=" w-100 btn btn-lg btn-outline-primary"> Cancel </a>
+                </div>
+              </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<%- include('partials/footer.ejs') %>

@@ -15,9 +15,15 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
+const indexRouter = require("./routes/index.routes");
+const productsRouter = require("./routes/products.routes");
+
+app.use("/", indexRouter);
+app.use("/products", productsRouter);
+
 
 app.listen(port, () => {
-    // sequelize.sync().then(() => {
+    sequelize.sync().then(() => {
       console.log(`Server running on ${port}`);
-    // });
+    });
   });
